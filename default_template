@@ -1,0 +1,23 @@
+Terminal    : {{.Terminal}}
+Cashier     : {{.LoginUser}}
+Date        : {{.Date}} {{.Time}}
+Bill        : {{.PaymentDate}} {{.PaymentTime}}
+[Cover:{{.Tag.Pax}}]
+
+#Ticket.Orders#
+#Ticket.Discounts#
+#Ticket.Services#
+#Ticket.Taxes#
+#Ticket.Payments#
+
+##Tickets.Payments##
+{{range .Payments}}
+Tendered    : {{.Name}}
+Change      : {{.Tendered}}
+RefNo       : {{.PaymentInformation.RefNo}}
+{{end}}
+
+##Tickets.Orders##
+{{range .Orders}}
+Name {{.Name}} {{.Quantity}} {{.Price}} 
+{{end}}
